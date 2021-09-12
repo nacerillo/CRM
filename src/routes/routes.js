@@ -1,3 +1,4 @@
+import {addNewContact} from '../controllers/controller';
 const routes = (app) => {
 
     app.route('/contact').get((req,res,next) => {
@@ -10,9 +11,7 @@ const routes = (app) => {
         res.send('GET request successful')
     });
 
-    app.route('/contact').post((req,res) => {
-        res.send('POST request successful')
-    });
+    app.route('/contact').post(addNewContact);
 
     app.route('/contact/:id').put((req,res) => {
         res.send('PUT request successful')

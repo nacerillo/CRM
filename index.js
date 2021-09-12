@@ -12,11 +12,11 @@ import routes from './src/routes/routes';
 const app = express();
 const port = 4000;
 // mongoose // connection
-/*
+import bodyParser from 'body-parser';
 const connectDB = async () => {
     mongoose.Promise = global.Promise;
     try{
-        await mongoose.connect('mongodb://localhost/CRMdb', {
+        await mongoose.connect('mongodb+srv://nacerillo:nacerillo123@contactscluster.5yhzk.mongodb.net/contactsv2?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology:true
     });
@@ -26,15 +26,20 @@ const connectDB = async () => {
         process.exit(1);
     }
 }
-connectDB();*/
+connectDB();
 //mongoose.Promise = global.Promise;
 
 
 
 
 //bodyParser
-app.use(express.json({extended : true}));
-//app.use(express.json());
+app.use(express.json());
+app.use(express.urlencoded({extended : true}));
+//app.use(bodyParser.urlencoded())
+
+// parse application/json
+//app.use(bodyParser.json());
+//
 routes(app);
 app.get('/', (req, res) => {
     //sending a message;

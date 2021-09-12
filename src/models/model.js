@@ -12,6 +12,13 @@ export const ContactSchema = new Schema({
     },
     email : {
         type: String,
-        required: true
+    },
+    company: {
+        type: String,
+    },
+
+    created: {
+        type: Date,
+        default: Date.now
     }
 });

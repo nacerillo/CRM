@@ -1,0 +1,7 @@
+//will tell what is transpileing
+{
+    "presets" : [
+        "env",
+        "stage-0"
+    ]
+}
